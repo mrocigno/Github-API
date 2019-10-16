@@ -57,10 +57,11 @@ class HomeActivity : AbstractActivity<HomePresenter>(), HomeView {
                 addOnRecycler(it)
                 manager.scrollToPosition(bundle.getInt(SCROLL_POSITION))
                 page = bundle.getInt(PAGE)
+                rcyHome.loading = it.last().infoCard
             }
+        }?:run {
+            presenter.init()
         }
-
-        presenter.init()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

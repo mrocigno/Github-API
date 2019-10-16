@@ -84,13 +84,12 @@ class RepositoriesAdapter(
     fun showInfoCard(){
         removePlaceholders()
 
-        if (list.isNotEmpty()) {
+        if (list.isNotEmpty() && !list.last().infoCard) {
             val merge = list as ArrayList
             merge.add(Github(placeholder = false, infoCard = true))
         } else {
             list = listOf(Github(placeholder = false, infoCard = true))
         }
-
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view){
